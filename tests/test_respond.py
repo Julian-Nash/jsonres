@@ -263,11 +263,6 @@ def expectation_failed():
     return Responder.text.expectation_failed()
 
 
-@http_bp.route("/418")
-def im_a_teapot():
-    return Responder.text.im_a_teapot()
-
-
 @http_bp.route("/421")
 def misdirected_request():
     return Responder.text.misdirected_request()
@@ -433,7 +428,7 @@ class TestRespondExtendingHTTPResponseBaseClass(unittest.TestCase):
             @classmethod
             def _make_response(cls, status: int, data: Optional[Any] = None, headers: Optional[dict] = None, **kwargs):
                 return "CUSTOM OK"
-            
+
         self.assertEqual(CustomHTTPResponse.ok(), "CUSTOM OK")
 
 
@@ -448,9 +443,6 @@ class TestRespondHTTPStatus(unittest.TestCase):
         for status in HTTPStatus:
             r = self.test_client.get(f"/http/{status}")
             self.assertEqual(r.status_code, status)
-
-        r = self.test_client.get(f"/http/418")
-        self.assertEqual(r.status_code, 418)
 
 
 class TestRespondJSONResponse(unittest.TestCase):
