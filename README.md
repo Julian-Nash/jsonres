@@ -216,7 +216,6 @@ class HTTPResponse(abc.ABC):
 | `unsupported_media_type` | `415 `|
 | `requested_range_not_satisfiable` | `416 `|
 | `expectation_failed` | `417 `|
-| `im_a_teapot` | `418 `|
 | `misdirected_request` | `421 `|
 | `unprocessable_entity` | `422 `|
 | `locked` | `423 `|
